@@ -77,10 +77,10 @@ main {
   transform-origin: bottom;
   translate: 0 -100%;
   scale: 1 0;
+  transition: scale 500ms ease;
 }
 
 #egg-gun.extended {
-  transition: scale 500ms ease;
   scale: 1 1;
 }
 
