@@ -1,5 +1,7 @@
 :root {
-
+  --actual-height: 100vh;
+  --header-height: 4rem;
+  --egg-size: calc(var(--header-height) * 1);
 }
 
 *, * *, * * * {
@@ -10,5 +12,73 @@
 html,
 body {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  
+  height: var(--actual-height);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-between;
+  background-color: #111;
+  color: #ddd;
+}
+
+header, footer {
+  background-color: #222;
+  color: #aaa;
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  opacity: 0.8;
+}
+footer {
+  height: calc(var(--header-height) / 2);
+}
+
+main {
+  flex-grow: 1;
+}
+
+#egg {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+  width: var(--egg-size);
+  height: var(--egg-size);
+  background-color: brown;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: rotate 500ms ease;
+}
+
+#egg-gun {
+  position: absolute;
+  background-color: inherit;
+  width: 10%;
+  height: 30%;
+  top: 0;
+  transform-origin: bottom;
+  translate: 0 -100%;
+  scale: 1 0;
+}
+
+#egg-gun.extended {
+  transition: scale 500ms ease;
+  scale: 1 1;
+}
+
+.word-ship {
+  position: absolute;
+  background-color: green;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: calc(var(--egg-size));
+  height: calc(var(--egg-size));
+  padding: 0 1rem;
+  border-radius: 50%;
+  transform-origin: center;
 }
