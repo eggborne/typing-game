@@ -19,20 +19,34 @@ body {
   justify-content: space-between;
   background-color: #111;
   color: #ddd;
+  overflow: hidden;
 }
 
 header, footer {
+  position: fixed;
   background-color: #222;
   color: #aaa;
+  width: 100vw;
   height: var(--header-height);
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  padding: 0 1rem;
   z-index: 1;
   opacity: 0.8;
+  transform: translateY(-100%);
+  transition: transform 300ms ease;
 }
 footer {
   height: calc(var(--header-height) / 2);
+  justify-content: flex-end;
+  transform: translateY(100%);
+  bottom: 0;
+}
+
+body.over header,
+body.over footer {
+  transform: none;
 }
 
 main {
@@ -81,4 +95,9 @@ main {
   padding: 0 1rem;
   border-radius: 50%;
   transform-origin: center;
+  transition: all 50ms linear;
+}
+
+#ticker {
+  z-index: 3;
 }
