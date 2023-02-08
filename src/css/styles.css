@@ -37,6 +37,7 @@ header, footer {
   transform: translateY(-100%);
   transition: transform 300ms ease;
 }
+
 footer {
   height: calc(var(--header-height) / 2);
   justify-content: flex-end;
@@ -84,18 +85,57 @@ main {
   scale: 1 1;
 }
 
-.word-ship {
+.word-ship, 
+.word-ship > .focus-layer {
+  font-size: 1.2rem;
   position: absolute;
   background-color: green;
   display: flex;
   align-items: center;
-  justify-content: center;
+  /* justify-coooontent: center; */
   min-width: calc(var(--egg-size));
   height: calc(var(--egg-size));
-  padding: 0 1rem;
+  padding: 1rem 2rem;
   border-radius: 50%;
   transform-origin: center;
-  transition: all 50ms linear;
+  transition: scale 300ms linear, rotate 300ms linear;
+}
+.word-ship > .focus-layer {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: inherit;
+  background-color: rgba(126, 178, 30, 0.699);
+  opacity: 0;
+  text-shadow: 0 0 0.25rem black;
+  transition: opacity 300ms ease;
+}
+
+.word-ship.highlighted .focus-layer {
+  opacity: 1;
+}
+
+.word-ship.defeated {
+  scale: 0;
+  rotate: 270deg;
+}
+
+#input-display {
+  font-size: 2rem;
+  align-self: center;
+  transform-origin: center;
+  transition: translate 300ms ease, scale 300ms ease, rotate 300ms ease;
+}
+
+#input-display.correct {
+  scale: 1.2;
+  color: lightgreen;
+  translate: 0 50%;
+}
+
+#input-display.dying {
+  scale: 2 0;
+  color: red;
 }
 
 #ticker {
